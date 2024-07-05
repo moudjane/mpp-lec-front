@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MatchService, MatchResponse, Event } from '../match.service';
+import { teamLogos } from '../team-logos'; // Import the team logos
 
 @Component({
   selector: 'app-match-list',
@@ -24,11 +25,15 @@ export class MatchListComponent implements OnInit {
     });
   }
 
-  marketKeys(markets: { [key: string]: any }): string[] {
+  marketKeys(markets: any): string[] {
     return Object.keys(markets);
   }
 
-  submarketKeys(submarkets: { [key: string]: any }): string[] {
-    return submarkets ? Object.keys(submarkets) : [];
+  submarketKeys(submarket: any): string[] {
+    return submarket ? Object.keys(submarket) : [];
+  }
+
+  getLogo(teamName: string): string {
+    return teamLogos[teamName] || 'assets/logos/default-logo.svg'; // Use a default logo if not found
   }
 }

@@ -1,0 +1,24 @@
+<div *ngFor="let event of events">
+  <h3>{{ event.home.name }} vs {{ event.away.name }}</h3>
+  <p>Status: {{ event.status }}</p>
+  <p>Cutoff Time: {{ event.cutoffTime }}</p>
+  <h4>Winning Odds</h4>
+  <div *ngIf="event.markets['league_of_legends.winner']">
+    <div *ngFor="let submarketKey of submarketKeys(event.markets['league_of_legends.winner'].submarkets)">
+      <div *ngFor="let selection of event.markets['league_of_legends.winner'].submarkets[submarketKey].selections">
+        <p *ngIf="selection.outcome === 'home'">
+          {{ event.home.name }} Winning Odds: Price: {{ selection.price }} 
+          <!-- - Probability: {{ selection.probability }} -->
+        </p>
+        <p *ngIf="selection.outcome === 'away'">
+          {{ event.away.name }} Winning Odds: Price: {{ selection.price }} 
+          <!-- - Probability: {{ selection.probability }} -->
+        </p>
+      </div>
+      <span>===============================================================</span>
+    </div>
+  </div>
+  <div *ngIf="!event.markets['league_of_legends.winner']">
+    <p>No winning odds available</p>
+  </div>
+</div>

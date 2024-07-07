@@ -1,0 +1,164 @@
+.matches-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .match-list {
+    display: grid;
+    grid-gap: 20px;
+  }
+  
+  .match-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .match-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .match-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+  
+  .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+  }
+  
+  .vs {
+    font-size: 24px;
+    font-weight: bold;
+    color: #666;
+  }
+  
+  .team-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
+  }
+  
+  .team-name {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .match-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .odds-section {
+    padding: 20px;
+  }
+  
+  h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .odds-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .odds-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 48%;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    position: relative;
+  }
+  
+  .odds-item.away {
+    align-items: flex-end;
+  }
+  
+  .odds-price {
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  
+  .odds-price.winning {
+    color: #4a90e2;
+  }
+  
+  .odds-price.losing {
+    color: #fcb93e;
+  }
+  
+  .probability-bar {
+    height: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 0 2px 2px 0;
+  }
+  
+  .probability-bar.winning {
+    background-color: #4a90e2;
+  }
+  
+  .probability-bar.losing {
+    background-color: #fcb93e;
+  }
+  
+  .odds-item.away .probability-bar {
+    left: auto;
+    right: 0;
+    border-radius: 2px 0 0 2px;
+  }
+  
+  .odds-probability {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  @media (max-width: 600px) {
+    .odds-container {
+      flex-direction: column;
+    }
+  
+    .odds-item {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .odds-item.away {
+      align-items: flex-start;
+    }
+  
+    .odds-item.away .probability-bar {
+      left: 0;
+      right: auto;
+      border-radius: 0 2px 2px 0;
+    }
+  }

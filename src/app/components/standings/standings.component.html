@@ -1,0 +1,30 @@
+<div class="standings-container">
+  <h1>Standings : REGULAR SEASON</h1>
+  <table class="standings-table">
+    <thead>
+      <tr>
+        <th>Position</th>
+        <th>Team</th>
+        <th>Location</th>
+        <th>Wins</th>
+        <th>Losses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let team of standings; let i = index">
+        <td class="position">{{ i + 1 }}</td>
+        <td class="team">
+          <img [src]="team.imageUrl" alt="{{ team.name }}" class="team-logo">
+          <span class="team-name">{{ team.name }}</span>
+        </td>
+        <td>{{ team.location }}</td>
+        <td class="wins">{{ team.wins }}</td>
+        <td class="losses">{{ team.losses }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="legend">
+    <p><span class="qualification-line"></span> Ligne de qualification</p>
+    <p>Les équipes en dessous de la ligne sont disqualifiées pour la suite de la compétition.</p>
+  </div>
+</div>

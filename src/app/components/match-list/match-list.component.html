@@ -1,0 +1,49 @@
+<div class="matches-container">
+  <h1>Upcoming Matches</h1>
+  <div class="match-list">
+    <div *ngFor="let event of events" class="match-card">
+      <div class="match-header">
+        <div class="team home">
+          <img [src]="getLogo(event.home.name)" alt="{{ event.home.name }}" class="team-logo">
+          <span class="team-name">{{ event.home.name }}</span>
+        </div>
+        <div class="vs">VS</div>
+        <div class="team away">
+          <img [src]="getLogo(event.away.name)" alt="{{ event.away.name }}" class="team-logo">
+          <span class="team-name">{{ event.away.name }}</span>
+        </div>
+      </div>
+      <div class="match-info">
+        <span class="status">Status: {{ event.status }}</span>
+        <span class="cutoff-time">Cutoff Time: {{ formatFrenchTime(event.cutoffTime) }}</span>
+      </div>
+      <div class="odds-section">
+        <h4>Winner Odds</h4>
+        <div *ngIf="event.markets['league_of_legends.winner']" class="odds-list">
+          <div *ngFor="let submarketKey of submarketKeys(event.markets['league_of_legends.winner'].submarkets)">
+            <div *ngIf="event.markets['league_of_legends.winner'].submarkets[submarketKey] && event.markets['league_of_legends.winner'].submarkets[submarketKey].selections" class="odds-container">
+              <ng-container *ngIf="getHighestAndLowestOdds(event.markets['league_of_legends.winner'].submarkets[submarketKey].selections) as oddsInfo">
+                <div *ngFor="let selection of event.markets['league_of_legends.winner'].submarkets[submarketKey].selections" 
+                     class="odds-item" 
+                     [ngClass]="{'home': selection.outcome === 'home', 'away': selection.outcome === 'away'}">
+                  <span class="team-name">{{ selection.outcome === 'home' ? event.home.name : event.away.name }}</span>
+                  <span class="odds-price" [ngClass]="{'winning': selection.price === oddsInfo.lowestOdds, 'losing': selection.price === oddsInfo.highestOdds}">
+                    {{ selection.price }}
+                  </span>
+                  <div class="probability-bar" 
+                       [ngClass]="{'winning': selection.probability === oddsInfo.highestProbability, 'losing': selection.probability === oddsInfo.lowestProbability}"
+                       [style.width]="(selection.probability * 100) + '%'">
+                  </div>
+                  <span class="odds-probability">{{ (selection.probability * 100).toFixed(2) }}%</span>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!event.markets['league_of_legends.winner']" class="no-odds">
+          <span>No winner odds available</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

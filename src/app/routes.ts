@@ -1,7 +1,11 @@
 import { Routes } from '@angular/router';
-import { MatchListComponent } from './match-list/match-list.component';
+import { HomeComponent } from './components/home/home.component';
+import { MatchListComponent } from './components/match-list/match-list.component';
+import { StandingsComponent } from './components/standings/standings.component';
 
 export const routes: Routes = [
   { path: 'matches', component: MatchListComponent },
-  { path: '', redirectTo: '/matches', pathMatch: 'full' }
+  { path: 'standings', component: StandingsComponent},
+  { path: '', component: HomeComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

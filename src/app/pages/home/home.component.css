@@ -1,0 +1,15 @@
+h1{
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /*centré verticalement*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: -100px;
+
+}

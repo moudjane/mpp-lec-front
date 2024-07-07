@@ -1,0 +1,28 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #005CBB;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .social-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+  }
+  
+  .social-links a:hover {
+    text-decoration: underline;
+  }
+  

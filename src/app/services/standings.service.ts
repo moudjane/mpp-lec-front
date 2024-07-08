@@ -28,7 +28,7 @@ export interface Team {
   providedIn: 'root'
 })
 export class StandingsService {
-  private apiUrl = 'http://localhost:8080/api/standings';
+  private apiUrl = 'http://109.199.107.52:8080/api/standings';
 
   constructor(private http: HttpClient) { }
 

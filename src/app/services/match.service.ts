@@ -53,7 +53,7 @@ export interface Selection {
   providedIn: 'root'
 })
 export class MatchService {
-  private apiUrl = 'http://localhost:8080/api/matches';
+  private apiUrl = 'http://109.199.107.52:8080/api/matches';
 
   constructor(private http: HttpClient) { }
 
